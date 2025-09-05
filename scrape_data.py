@@ -6,12 +6,12 @@ import os
 import csv
 
 load_dotenv()
-
-CLIENT_ID = "nMomzZWXzv3Bygh9ije9-Q"
-SECRET = "d5bRwpWqgl42sjlWAczrNhn8KUOdTw"
-USERNAME = "Remote_Map2501"
-PASSWORD = "gE54Q29dNN*X*qb"
-USER_AGENT = "chinese-mom-data-scrapper"
+os.getenv()
+CLIENT_ID = os.getenv(CLIENT_ID)
+SECRET = os.getenv(SECRET)
+USERNAME = os.getenv(USERNAME)
+PASSWORD = os.getenv(PASSWORD)
+USER_AGENT = os.getenv(USER_AGENT)
 
 reddit = praw.Reddit(
     client_id=CLIENT_ID,   
