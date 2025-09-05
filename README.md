@@ -1,4 +1,4 @@
-# Veil Simulation Prototype – Chinese Mom Personas
+# Veil Simulation Prototype (Deliverable) – Chinese Mom Personas
 
 ## Overview
 This repository contains a prototype of Veil’s simulation engine, focused on modeling **Chinese mom personas**.  
@@ -15,7 +15,7 @@ We use **Reddit posts on Asian identity and parenting** as training data, fine-t
 - **Output**: Personas that simulate tone, contradiction, and emotional traits (for example: protective, stern, pragmatic).  
 
 ## Personas
-We define personas through:
+Defining 6 personas through:
 - **Identity**: cultural/immigrant context (for example: Cantonese working-class).  
 - **Emotional Traits**: protective, critical, warm-through-food.  
 - **Contradiction Style**: affection hidden behind critique.  
