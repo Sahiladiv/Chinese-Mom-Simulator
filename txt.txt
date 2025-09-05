@@ -1,1 +1,13 @@
 
+I began by scraping Reddit discussions on Asian identity and parenting to build a dataset rich in emotional nuance and intergenerational dynamics. 
+Reddit was chosen because its open format surfaces candid, high-context perspectives—exactly the type of discourse that focus groups and surveys often fail to capture. 
+
+By fine-tuning Falcon-7B with LoRA adapters, I was able to model not just surface-level responses but also the affective undertones—pride, frustration, guilt, and contradiction—that shape real human dialogue.
+
+This modeling work was guided by persona design: building “voices” that reflect culture, migration histories, and class context. 
+
+Each persona isn’t a stereotype, but a simulation of how identity and experience color response patterns. 
+
+The design assumptions allow the engine to approximate how different communities might react under similar prompts, while ethical guardrails ensure we avoid caricature or amplification of harmful tropes.
+
+At scale, this fine-tuning can become a foundational block in Veil’s simulation engine. By layering retrieval systems, real-time orchestration across 500+ personas, and interactive visualizations like heatmaps and contradiction flags, we can replace the static, costly focus group with a living, computational model of emotional and behavioral response.
