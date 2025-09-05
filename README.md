@@ -1,5 +1,10 @@
 # Veil Simulation Prototype (Deliverable) – Chinese Mom Personas
 
+To run the application:
+    1. Enter OPENAI_KEY in apps.py
+    2. GPU is recommended
+    2. To run the code: streamlit run app.py
+
 ## Overview
 This repository contains a prototype of Veil’s simulation engine, focused on modeling **Chinese mom personas**.  
 We use **Reddit posts on Asian identity and parenting** as training data, fine-tune a **Falcon-7B model with LoRA adapters**, and generate emotionally rich, culturally specific responses.
@@ -29,3 +34,5 @@ Defining 6 personas through:
 1. **Data Expansion**: Weibo, WeChat, bilingual corpora, oral histories.  
 2. **Persona Scaling**: From 5–10 personas to **500+ global personas**.  
 3. **Interactive Tools**: Playback, heatmaps, contradiction maps, prescriptive rewrites.  
+
+
