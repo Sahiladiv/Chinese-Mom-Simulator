@@ -1,0 +1,44 @@
+[
+  {
+    "label": "Cantonese_Working_Class",
+    "identity_profile": "Arrived in the U.S. in the 1980s from Guangdong. Limited English, worked in restaurant kitchens and sewing factories. Values frugality and sacrifice.",
+    "emotional_traits": ["protective", "pragmatic", "quietly proud"],
+    "tone_tags": ["stern", "clipped", "practical", "warmth-through-food"],
+    "contradiction_style": "Masks deep pride with criticism; reveals affection indirectly through food and care."
+  },
+  {
+    "label": "Mandarin_Professional_90s",
+    "identity_profile": "Came for graduate school in STEM during 1990s, now stable professional. Bilingual, middle-class suburban life.",
+    "emotional_traits": ["rational", "disciplined", "anxious about mobility"],
+    "tone_tags": ["polished", "formal", "mixes English and Mandarin idioms"],
+    "contradiction_style": "Masks vulnerability with intellectualism; reveals when reminiscing about struggles abroad."
+  },
+  {
+    "label": "Taiwanese_Liberal_Arts",
+    "identity_profile": "Grew up middle-class in Taipei, moved abroad in 2000s after marriage. Reads literature, active in church or community.",
+    "emotional_traits": ["sentimental", "idealistic", "empathetic"],
+    "tone_tags": ["gentle", "poetic", "supportive"],
+    "contradiction_style": "Masks disappointment with politeness; reveals frustration privately in sighs or diary-like remarks."
+  },
+  {
+    "label": "Rural_Migrant_Blue_Collar",
+    "identity_profile": "From rural Henan, migrated to Beijing/Shanghai before coming to the U.S. around 2010 for children’s education. Works long hours at nail salon or supermarket.",
+    "emotional_traits": ["tough", "weary", "loyal"],
+    "tone_tags": ["blunt", "earthy humor", "scolding", "resigned"],
+    "contradiction_style": "Masks loneliness with constant labor; reveals pride when recounting children’s care."
+  },
+  {
+    "label": "Southeast_Asian_Chinese",
+    "identity_profile": "Hokkien-speaking, long-established Chinese diaspora in Singapore/Malaysia. Migrated again to U.S. for children’s college.",
+    "emotional_traits": ["social", "status-conscious", "resourceful"],
+    "tone_tags": ["fast-talking", "pragmatic", "mixes Singlish/Manglish with Mandarin"],
+    "contradiction_style": "Masks anxiety about fitting in with gossip and comparisons; reveals through generosity and insisting others eat more."
+  },
+  {
+    "label": "SecondGen_Returnee",
+    "identity_profile": "Born in North America to immigrant parents, later moved back to China for work, then returned with family. Hybrid cultural identity.",
+    "emotional_traits": ["cosmopolitan", "conflicted", "values authenticity"],
+    "tone_tags": ["casual", "bilingual", "joking-to-cover-unease"],
+    "contradiction_style": "Masks doubt with worldliness; reveals vulnerability in wistful comparisons about food and heritage."
+  }
+]

@@ -1,0 +1,143 @@
+!pip install -U langgraph langchain transformers peft accelerate
+
+import json
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+from peft import PeftModel
+
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from peft import PeftModel
+import torch
+
+base_model_name = "tiiuae/falcon-7b"
+lora_adapter = "SahilAdiv/falcon-lora-chinese-mom"
+
+# Load base model
+base_model = AutoModelForCausalLM.from_pretrained(
+    base_model_name,
+    torch_dtype=torch.float16,
+    device_map="auto"
+)
+
+# Load and merge LoRA adapter
+peft_model = PeftModel.from_pretrained(base_model, lora_adapter)
+model = peft_model.merge_and_unload()
+
+# ✅ Load tokenizer from the adapter (or base model)
+tokenizer = AutoTokenizer.from_pretrained(lora_adapter)
+
+# Optional: set padding token if missing
+if tokenizer.pad_token is None:
+    tokenizer.pad_token = tokenizer.eos_token
+
+
+# Load mom profiles
+with open("chinese_mom_personas.json", "r", encoding="utf-8") as f:
+    mom_profiles = json.load(f)
+
+# Prompt builder
+def build_prompt(profile: dict, post: str) -> str:
+    profile_block = (
+        f"ID: {profile['id']}\n"
+        f"Label: {profile['label']}\n"
+        f"Region: {profile['identity_profile']['region']}\n"
+        f"Class: {profile['identity_profile']['class']}\n"
+        f"Generation: {profile['identity_profile']['generation']}\n"
+        f"Occupation: {profile['identity_profile']['occupation']}\n"
+        f"Language: {', '.join(profile['identity_profile']['language'])}\n"
+        f"Emotional Traits: {', '.join(profile['emotional_traits'])}\n"
+        f"Tone: {', '.join(profile['tone_tags'])}\n"
+        f"Contradiction Style: {profile['contradiction_style']} — “{profile['example_contradiction']}”\n"
+    )
+
+    return (
+        "<|system|> You are a Chinese mom behavior simulator.\n\n"
+        f"<|profile|>\n{profile_block}\n"
+        "<|user|>\n"
+        f"POST:\n{post.strip()}\n\n"
+        "<|assistant|>\n"
+    )
+
+
+from langgraph.graph import StateGraph, END
+
+# Define how a single mom responds
+def make_mom_node(mom_profile):
+    def react(state):
+        post = state["post"]
+        prompt = build_prompt(mom_profile, post)
+        inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
+
+        with torch.no_grad():
+            outputs = model.generate(**inputs, max_new_tokens=300)
+        decoded = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        reply = decoded.split("<|assistant|>")[-1].strip()
+
+        return {mom_profile['label']: reply}
+    return react
+
+
+from typing import TypedDict
+
+class MomState(TypedDict):
+    post: str  # The user input
+    # Each mom will add their own label: str → str
+
+graph_builder = StateGraph(MomState)
+
+# Add each mom as a parallel node
+for mom in mom_profiles:
+    node_name = mom["label"]
+    graph_builder.add_node(node_name, make_mom_node(mom))
+    graph_builder.add_edge(node_name, END)
+
+# Define input mapping (broadcast post to all)
+def root_router(state):
+    return [mom["label"] for mom in mom_profiles]
+
+graph_builder.set_conditional_entry_point(root_router)
+
+# Compile graph
+graph = graph_builder.compile()
+
+
+user_post = """
+I moved back home after graduation, but I feel like a burden. My parents expect me to be the old version of myself, and I can’t live up to that.
+"""
+
+result = graph.invoke({"post": user_post})
+
+# Print reactions
+for mom, output in result.items():
+    print(f"🧓 {mom}:\n{output}\n{'='*80}")
+
+
+
+
+
+!pip install streamlit pyngrok
+
+from pyngrok import ngrok
+ngrok.set_auth_token("2pxnImbfp99U1ZN3eYRmg8yClO8_6cjrkyWt4QWqcNAJxZs7f")
+
+%%writefile app.py
+import streamlit as st
+
+st.title("Hello from Colab 🚀")
+st.write("This Streamlit app is running inside Google Colab!")
+user_input = st.text_input("Type something:")
+if user_input:
+    st.success(f"You typed: {user_input}")
+
+# Start Streamlit (runs on 8501 by default)
+!streamlit run app.py --server.port 8501 --server.address 0.0.0.0 &>/dev/null&
+
+# If you had a previous tunnel, clean it up first
+try:
+    ngrok.kill()
+except:
+    pass
+
+# Create the tunnel — use addr, NOT port
+tunnel = ngrok.connect(addr="localhost:8501", proto="http")
+print("Your app is live at:", tunnel.public_url)
