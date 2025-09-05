@@ -2,8 +2,10 @@
 
 To run the application:
     1. Enter OPENAI_KEY in apps.py
+    
     2. GPU is recommended
-    2. To run the code: streamlit run app.py
+    
+    3. To run the code: streamlit run app.py
 
 ## Overview
 This repository contains a prototype of Veil’s simulation engine, focused on modeling **Chinese mom personas**.  
