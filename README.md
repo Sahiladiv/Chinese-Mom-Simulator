@@ -1,6 +1,7 @@
 # Veil Simulation Prototype (Deliverable) – Chinese Mom Personas
 
-To run the application:
+## Important Node:
+    
     1. Enter OPENAI_KEY in apps.py
     
     2. GPU is recommended
