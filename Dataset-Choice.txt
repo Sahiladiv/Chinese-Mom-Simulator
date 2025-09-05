@@ -1,8 +1,14 @@
-Dataset Choice
-For a prototype dataset, I collected a small sample of Reddit posts and comment threads from subreddits such as r/AsianParentStories, r/AsianAmerican, and r/Parenting (filtered for posts tagged or themed around Chinese or immigrant parenting). These posts are authored either directly by Chinese or Asian-identifying users reflecting on their upbringing, or by children describing interactions with their Chinese mothers. The dataset captures emotionally charged narratives, cultural references, and intergenerational tensions that are central to the simulation goal.
+Dataset Choice: (Reddit)
+For a prototype dataset, I collected a small sample of Reddit posts and comment threads from subreddits such as r/AsianParentStories, r/AsianAmerican, and r/Parenting (filtered for posts tagged or themed around Chinese or immigrant parenting). 
+These posts are authored either directly by Chinese or Asian-identifying users reflecting on their upbringing, or by children describing interactions with their Chinese mothers. 
+The dataset captures emotionally charged narratives, cultural references, and intergenerational tensions that are central to the simulation goal.
 
-Why It’s Valid
-Reddit provides high-context, first-person reflections that are less polished than blogs or articles, and therefore closer to authentic lived experience. The mix of posts and comments allows the dataset to represent both top-level parenting narratives and real-time conversational dynamics. While not exhaustive, the dataset contains enough variation (discipline, education pressure, food/care, emotional contradiction) to prototype persona behaviors and emotional modeling for Chinese mom archetypes.
+Why It’s Valid:
+Reddit provides high-context, first-person reflections that are less polished than blogs or articles, and therefore closer to authentic lived experience. 
+The mix of posts and comments allows the dataset to represent both top-level parenting narratives and real-time conversational dynamics.
+While not exhaustive, the dataset contains enough variation (discipline, education pressure, food/care, emotional contradiction) to prototype persona behaviors and emotional modeling for Chinese mom archetypes.
 
 What It Misses
-This dataset underrepresents voices of Chinese mothers themselves, since much of the content is authored by children reflecting on parental behavior. It also skews toward English-speaking, internet-active demographics, meaning it may not fully capture non-digital, rural, or Mandarin/Cantonese-only perspectives. Cultural nuance such as proverbs, idiomatic expressions, or context from offline Chinese-language parenting forums is largely absent. As such, while valid for a first-pass simulation, it would need to be supplemented with bilingual corpora, oral histories, or ethnographic transcripts to improve representativeness and avoid overfitting to diaspora or second-generation perspectives.
+This dataset underrepresents voices of Chinese mothers themselves, since much of the content is authored by children reflecting on parental behavior. 
+It also skews toward English-speaking, internet-active demographics, meaning it may not fully capture non-digital, rural, or Mandarin/Cantonese-only perspectives. 
+Cultural nuance such as proverbs, idiomatic expressions, or context from offline Chinese-language parenting forums is largely absent. 
