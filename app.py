@@ -61,7 +61,7 @@ import pandas as pd
 focus_group_df = pd.DataFrame(rows)
 
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = "ENTER OPENAI KEY HERE"
 # ---- CONFIG ----
 openai.api_key = OPENAI_API_KEY
 client = OpenAI(api_key=openai.api_key)
