@@ -1,6 +1,6 @@
-# Veil Simulation Prototype (Deliverable) – Chinese Mom Personas
+# Chinese Mom Personas Simulator
 
-## Important Node:
+## Important Note:
     
     1. Enter OPENAI_KEY in apps.py
     
